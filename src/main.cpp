@@ -1085,12 +1085,13 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
     return pblock->GetHash();
 }
 
+
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = 50 * COIN;
     if(nHeight == 2)  
     {
-        nSubsidy = 50 * COIN;
+        nSubsidy = 5000000 * COIN;
     }
     else if(nHeight < 5)  
     {
@@ -1102,7 +1103,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     }
 
     // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
-    nSubsidy >>= (nHeight / 840000); // Aubiz: 840k blocks in ~4 years
+    nSubsidy >>= (nHeight / 840000); // Lobitcoin: 840k blocks in ~4 years
 
     return nSubsidy + nFees;
 }
